@@ -1,0 +1,1 @@
+alias RubikSolver.Game.Cube
