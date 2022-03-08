@@ -9,7 +9,9 @@ defmodule RubikSolver.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      RubikSolver.Repo,
+      # NOTE disabling Repo since its not
+      # needed for initial phases of development
+      # RubikSolver.Repo,
       # Start the Telemetry supervisor
       RubikSolverWeb.Telemetry,
       # Start the PubSub system

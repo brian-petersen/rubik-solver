@@ -31,9 +31,11 @@ defmodule RubikSolverWeb.ConnCase do
     end
   end
 
-  setup tags do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(RubikSolver.Repo, shared: not tags[:async])
-    on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
+  setup _tags do
+    # NOTE disabling ecto parts of tests
+    # since not needed for initial phases of development
+    # pid = Ecto.Adapters.SQL.Sandbox.start_owner!(RubikSolver.Repo, shared: not tags[:async])
+    # on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
