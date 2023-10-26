@@ -17,3 +17,9 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## Notes
+
+If/when a database is needed, search for `NOTE Setup database`
+for all relevant parts of code that have been commented out
+to get jump started.
