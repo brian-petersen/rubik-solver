@@ -23,3 +23,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 If/when a database is needed, search for `NOTE Setup database`
 for all relevant parts of code that have been commented out
 to get jump started.
+
+## Credits
+
+- HTML/JS Rubik's Cube is [Dmytro Omelyan](https://codepen.io/Omelyan) work: https://codepen.io/Omelyan/pen/BKmedK
