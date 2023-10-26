@@ -17,12 +17,17 @@ defmodule RubikSolverWeb do
   and import those modules here.
   """
 
+  def static_paths do
+    ~w(assets images favicon.ico robots.txt)
+  end
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: RubikSolverWeb
 
       import Plug.Conn
-      alias RubikSolverWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
   end
 
@@ -34,7 +39,7 @@ defmodule RubikSolverWeb do
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
-        only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
+        only: [view_module: 1, view_template: 1]
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
@@ -44,7 +49,7 @@ defmodule RubikSolverWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {RubikSolverWeb.LayoutView, "live.html"}
+        layout: {RubikSolverWeb.LayoutView, :live}
 
       unquote(view_helpers())
     end
@@ -87,6 +92,10 @@ defmodule RubikSolverWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      alias Phoenix.Flash
+
+      import Phoenix.Component
+
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
 
@@ -94,7 +103,17 @@ defmodule RubikSolverWeb do
       import Phoenix.View
 
       import RubikSolverWeb.ErrorHelpers
-      alias RubikSolverWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
+    end
+  end
+
+  def verified_routes do
+    quote do
+      use Phoenix.VerifiedRoutes,
+        endpoint: RubikSolverWeb.Endpoint,
+        router: RubikSolverWeb.Router,
+        statics: RubikSolverWeb.static_paths()
     end
   end
 
