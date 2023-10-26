@@ -26,4 +26,5 @@ to get jump started.
 
 ## Credits
 
-- HTML/JS Rubik's Cube is [Dmytro Omelyan](https://codepen.io/Omelyan) work: https://codepen.io/Omelyan/pen/BKmedK
+- The [HTML/JS Rubik's Cube](https://codepen.io/Omelyan/pen/BKmedK) used in
+  this project is originally [Dmytro Omelyan's](https://codepen.io/Omelyan) work
