@@ -17,6 +17,7 @@ defmodule RubikSolverWeb.Router do
   scope "/", RubikSolverWeb do
     pipe_through :browser
 
+    live "/", GameLive
   end
 
   # Other scopes may use custom stacks.
